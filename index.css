@@ -1,0 +1,125 @@
+*{
+	padding:0;
+	margin:0;
+}
+ul,li{ 
+	list-style: none;
+	list-style-type:none;
+}
+#tree-box{
+	width:800px;
+	height:400px;
+	background: #fff;
+	margin: auto;  
+  	position: absolute;  
+  	top: 0; 
+  	left: 0; 
+  	bottom: 0; 
+  	right: 0;  
+}
+#tree-box .tree-1{
+	font-size: 16px;
+	color:#000;
+	font-family: "微软雅黑";
+	/*min-width:800px;
+	min-height:800px;	*/
+	margin:0 auto;
+	padding:20px;
+}
+#tree-box li span.switch {
+	display: inline-block;
+    line-height: 0;
+    vertical-align: middle;
+    border: 0 none;
+    cursor: pointer;
+    outline: none;
+    width:32px;
+    height:33px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-image: url("checkbox_tree.png");
+    background-position:-16px -49px;
+}
+#tree-box li span.switch-hover{
+	background-position:-91px -49px;
+}
+#tree-box li span.last-switch{
+	background-position:-17px -134px;
+}
+#tree-box li span.last-switch-hover{
+	background-position:-92px -133px;
+}
+#tree-box li span.tree-2-switch{
+	width:35px;
+	height:28px;
+	background-position:-1px -99px;
+}
+#tree-box li span.tree-2-switch-hover{
+	background-position:-75px -99px;
+}
+#tree-box li span.last-tree-2-switch{
+	background-position:-1px -168px;
+}
+#tree-box li span.last-tree-2-switch-hover{
+	background-position:-75px -166px;
+}
+#tree-box li span.check{
+	display: inline-block;
+	line-height: 0;
+	vertical-align: middle;
+    border: 0 none;
+    cursor: pointer;
+    outline: none;
+	vertical-align: middle;
+	width:19px;
+	height:21px;
+	background-color: transparent;
+    background-repeat: no-repeat;
+	background-image: url("checkbox_tree.png");
+	background-position:-18px -5px;
+	position: relative;
+	bottom:6px;
+	right:4px;
+}
+#tree-box li span.check-hover{
+	background-position:-90px -6px;
+}
+#tree-box li span.tree-2-check{
+	left:12px;
+	bottom:4px;
+}
+#tree-box li label.name{
+	display: inline-block;
+	padding-left:6px;
+	position: relative;
+	bottom:4px;
+}
+#tree-box li label.tree-2-name{
+	padding-left:20px;
+}
+#tree-box li label.tree-3-name{
+	margin-right:20px;
+}
+#tree-box .tree-2{
+	padding-left:5px;
+	margin-left:10px;
+	border-left:1px dashed #cacaca;
+	display: none;
+}
+#tree-box .tree-2 > li{
+	clear: both;
+}
+#tree-box .tree-3{
+	overflow: hidden;
+	min-height:20px;
+	padding: 20px 0px 0px 64px;
+    margin-left: 26px;
+    border-left: 1px dashed #cacaca;
+    display: none;
+}
+#tree-box .tree-3 li{
+	display:block;
+	float:left;
+	padding-bottom:20px;
+}
