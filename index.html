@@ -10,7 +10,9 @@
         <link rel="stylesheet" href="index.css?v=2016082610">
     </head>
     <body>
+        <div id="mask"></div>
         <div id="tree-box">
+             <div id="tree-box-close" title="关闭"></div>
              <ul class="tree-1">
                  <li class="tree-1-li">
                      <span class="switch tree-1-switch"></span>
@@ -158,49 +160,135 @@
                      <span class="switch last-switch tree-1-switch"></span>
                      <span class="check tree-1-check"></span>
                      <label for="" class="name tree-1-name">操作员权限</label>
+                     <ul class="tree-2">
+                         <li class="tree-2-li">
+                             <span class="switch tree-2-switch"></span>
+                             <span class="check tree-2-check"></span>
+                             <label for="" class="name tree-2-name">操作员管理</label>
+                             <ul class="tree-3">
+                                 <li class="tree-3-li">
+                                     <span class="check tree-3-check"></span>
+                                     <label for="" class="name tree-3-name">操作员管理</label>
+                                 </li>
+                                 <li class="tree-3-li">
+                                     <span class="check tree-3-check"></span>
+                                     <label for="" class="name tree-3-name">操作员管操作员管理操作员管理理</label>
+                                 </li>
+                                 <li class="tree-3-li">
+                                     <span class="check tree-3-check"></span>
+                                     <label for="" class="name tree-3-name">操作员管理</label>
+                                 </li>
+                                 <li class="tree-3-li">
+                                     <span class="check tree-3-check"></span>
+                                     <label for="" class="name tree-3-name">操作员管理</label>
+                                 </li>
+                                 <li class="tree-3-li">
+                                     <span class="check tree-3-check"></span>
+                                     <label for="" class="name tree-3-name">操作员管理</label>
+                                 </li>
+                             </ul>
+                         </li>
+                         <li class="tree-2-li">
+                             <span class="switch tree-2-switch"></span>
+                             <span class="check tree-2-check"></span>
+                             <label for="" class="name tree-2-name">分组管理</label>
+                         </li>
+                         <li class="tree-2-li last-tree-2-li">
+                             <span class="switch tree-2-switch last-tree-2-switch"></span>
+                             <span class="check tree-2-check"></span>
+                             <label for="" class="name tree-2-name">分组管理</label>
+                              <ul class="tree-3">
+                                 <li class="tree-3-li">
+                                     <span class="check tree-3-check"></span>
+                                     <label for="" class="name tree-3-name">操作员管理</label>
+                                 </li>
+                                 <li class="tree-3-li">
+                                     <span class="check tree-3-check"></span>
+                                     <label for="" class="name tree-3-name">操作员管操作员管理操作员管理理</label>
+                                 </li>
+                                 <li class="tree-3-li">
+                                     <span class="check tree-3-check"></span>
+                                     <label for="" class="name tree-3-name">操作员管理</label>
+                                 </li>
+                                 <li class="tree-3-li">
+                                     <span class="check tree-3-check"></span>
+                                     <label for="" class="name tree-3-name">操作员管理</label>
+                                 </li>
+                                 <li class="tree-3-li">
+                                     <span class="check tree-3-check"></span>
+                                     <label for="" class="name tree-3-name">操作员管理</label>
+                                 </li>
+                             </ul>
+                         </li>
+                     </ul>
+                     <span class="last-space"></span>
                  </li>
              </ul>
         </div>
       	<script src="jquery-1.7.2.min.js"></script>
         <script type="text/javascript">
             $(function(){
-                // 二级
-                $(".tree-1-switch").on("click",function(){
-                    var $this_ul=$(this).parent().find(">ul");
-                    if($(this).hasClass("last-switch")){
-                        $(this).toggleClass("last-switch-hover");
-                    }else{
-                        $(this).toggleClass("switch-hover");
-                    }
-                    if($this_ul.is(":hidden")){
-                        $this_ul.slideDown();
-                    }else{
-                        $this_ul.slideUp();
-                    }
-                })
-                // 三级
-                $(".tree-2-switch").on("click",function(){
-                    var $this_ul=$(this).parent().find(">ul");
-                    if($(this).hasClass("last-tree-2-switch")){
-                        $(this).toggleClass("last-tree-2-switch-hover");
-                    }else{
-                        $(this).toggleClass("tree-2-switch-hover");
-                    }
-                    if($this_ul.is(":hidden")){
-                        $this_ul.slideDown();
-                    }else{
-                        $this_ul.slideUp();
-                    }
-                })
-                // checkbox
-                $("#tree-box li span.check").on("click",function(){
-                    if($(this).hasClass("check-hover")){
-                        $(this).parent().find("ul .check").removeClass("check-hover");
-                    }else{
-                        $(this).parent().find("ul .check").addClass("check-hover");
-                    }
-                    $(this).toggleClass("check-hover");
-                })
+                treeBox();
+                function treeBox(){
+                    $("#mask").show();
+                    $("#tree-box").show();
+                    $("#tree-box-close,#mask").on("click",function(){
+                        $("#mask").hide();
+                        $("#tree-box").hide();
+                    })
+                    // 二级
+                    $(".tree-1-switch").on("click",function(){
+                        var $this_ul=$(this).parent().find(">ul");
+                        if($(this).hasClass("last-switch") && $this_ul.length<=0){
+                            $(this).toggleClass("last-switch-hover");
+                        }else{
+                            $(this).toggleClass("switch-hover");
+                        }
+                        if($this_ul.is(":hidden")){
+                            $this_ul.slideDown();
+                        }else{
+                            $this_ul.slideUp();
+                        }
+                    })
+                    // 三级
+                    $(".tree-2-switch").on("click",function(){
+                        var $this_ul=$(this).parent().find(">ul");
+                        if($(this).hasClass("last-tree-2-switch")){
+                            $(this).toggleClass("last-tree-2-switch-hover");
+                            $this_ul.css({
+                                "border":"none"
+                            })
+                        }else{
+                            $(this).toggleClass("tree-2-switch-hover");
+                        }
+                        if($this_ul.is(":hidden")){
+                            if($(this).parent().hasClass("last-tree-2-li")){
+                                var bottom=$this_ul.height()+18+18;
+                                $(".last-space").css({
+                                    "bottom":bottom
+                                })
+                            }
+                            $this_ul.slideDown();
+                        }else{
+                            if($(this).parent().hasClass("last-tree-2-li")){
+                                $(".last-space").css({
+                                    "bottom":18
+                                })
+                            }
+                            $this_ul.slideUp();
+                        }
+                    })
+                    // checkbox
+                    $("#tree-box li span.check").on("click",function(){
+                        if($(this).hasClass("check-hover")){
+                            $(this).parent().find("ul .check").removeClass("check-hover");
+                        }else{
+                            $(this).parent().find("ul .check").addClass("check-hover");
+                        }
+                        $(this).toggleClass("check-hover");
+                    })
+                }
+                
             })
         </script>
     </body>

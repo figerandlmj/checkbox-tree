@@ -6,9 +6,31 @@ ul,li{
 	list-style: none;
 	list-style-type:none;
 }
+/* 遮罩层 */
+#mask{
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.37;
+	position: absolute;
+	top:0;
+	z-index: 999;
+	display: none;
+}
+#tree-box-close{
+	width:32px;
+	height:30px;
+	background-color: transparent;
+    background-repeat: no-repeat;
+    background-image: url("checkbox_tree.png");
+    background-position:-128px -3px;
+    float:right;
+    cursor: pointer;
+}
 #tree-box{
 	width:800px;
 	height:400px;
+	overflow-y:scroll; 
 	background: #fff;
 	margin: auto;  
   	position: absolute;  
@@ -16,15 +38,27 @@ ul,li{
   	left: 0; 
   	bottom: 0; 
   	right: 0;  
+  	z-index: 999999;
+  	display: none;
 }
 #tree-box .tree-1{
 	font-size: 16px;
 	color:#000;
 	font-family: "微软雅黑";
-	/*min-width:800px;
-	min-height:800px;	*/
-	margin:0 auto;
 	padding:20px;
+	margin:0 auto;
+}
+#tree-box .tree-1 > li{
+	position:relative;
+}
+#tree-box li span.last-space{
+	display: block;
+    width: 1px;
+    height: 8px;
+    background: #cacaca;
+    position: absolute;
+    left: 10px;
+    bottom: 18px;
 }
 #tree-box li span.switch {
 	display: inline-block;
@@ -41,11 +75,11 @@ ul,li{
     background-image: url("checkbox_tree.png");
     background-position:-16px -49px;
 }
-#tree-box li span.switch-hover{
-	background-position:-91px -49px;
-}
 #tree-box li span.last-switch{
 	background-position:-17px -134px;
+}
+#tree-box li span.switch-hover{
+	background-position:-91px -49px;
 }
 #tree-box li span.last-switch-hover{
 	background-position:-92px -133px;
@@ -55,11 +89,11 @@ ul,li{
 	height:28px;
 	background-position:-1px -99px;
 }
-#tree-box li span.tree-2-switch-hover{
-	background-position:-75px -99px;
-}
 #tree-box li span.last-tree-2-switch{
 	background-position:-1px -168px;
+}
+#tree-box li span.tree-2-switch-hover{
+	background-position:-75px -99px;
 }
 #tree-box li span.last-tree-2-switch-hover{
 	background-position:-75px -166px;
@@ -102,13 +136,16 @@ ul,li{
 	margin-right:20px;
 }
 #tree-box .tree-2{
-	padding-left:5px;
 	margin-left:10px;
-	border-left:1px dashed #cacaca;
 	display: none;
 }
 #tree-box .tree-2 > li{
 	clear: both;
+	padding-left: 5px;
+	border-left: 1px dashed #cacaca;
+}
+#tree-box .tree-2 > li.last-tree-2-li{
+	border:none;
 }
 #tree-box .tree-3{
 	overflow: hidden;
@@ -118,7 +155,7 @@ ul,li{
     border-left: 1px dashed #cacaca;
     display: none;
 }
-#tree-box .tree-3 li{
+#tree-box .tree-3 > li{
 	display:block;
 	float:left;
 	padding-bottom:20px;
