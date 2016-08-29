@@ -156,7 +156,7 @@
                      <span class="check tree-1-check"></span>
                      <label for="" class="name tree-1-name">操作员权限</label>
                  </li>
-                 <li class="tree-1-li">
+                 <li class="tree-1-li last-tree-1-li">
                      <span class="switch last-switch tree-1-switch"></span>
                      <span class="check tree-1-check"></span>
                      <label for="" class="name tree-1-name">操作员权限</label>
@@ -193,7 +193,7 @@
                              <span class="check tree-2-check"></span>
                              <label for="" class="name tree-2-name">分组管理</label>
                          </li>
-                         <li class="tree-2-li last-tree-2-li">
+                         <li class="tree-2-li">
                              <span class="switch tree-2-switch last-tree-2-switch"></span>
                              <span class="check tree-2-check"></span>
                              <label for="" class="name tree-2-name">分组管理</label>
@@ -221,7 +221,6 @@
                              </ul>
                          </li>
                      </ul>
-                     <span class="last-space"></span>
                  </li>
              </ul>
         </div>
@@ -262,30 +261,50 @@
                             $(this).toggleClass("tree-2-switch-hover");
                         }
                         if($this_ul.is(":hidden")){
-                            if($(this).parent().hasClass("last-tree-2-li")){
-                                var bottom=$this_ul.height()+18+18;
-                                $(".last-space").css({
-                                    "bottom":bottom
-                                })
-                            }
                             $this_ul.slideDown();
                         }else{
-                            if($(this).parent().hasClass("last-tree-2-li")){
-                                $(".last-space").css({
-                                    "bottom":18
-                                })
-                            }
                             $this_ul.slideUp();
                         }
                     })
                     // checkbox
-                    $("#tree-box li span.check").on("click",function(){
+                    $(".tree-1-check").on("click",function(){
                         if($(this).hasClass("check-hover")){
                             $(this).parent().find("ul .check").removeClass("check-hover");
                         }else{
                             $(this).parent().find("ul .check").addClass("check-hover");
                         }
                         $(this).toggleClass("check-hover");
+                    })
+                    $(".tree-2-check").on("click",function(){
+                        if($(this).hasClass("check-hover")){
+                            $(this).parent().find("ul .check").removeClass("check-hover");
+                        }else{
+                            $(this).parent().parent().parent().find(">.check").addClass("check-hover");
+                            $(this).parent().find("ul .check").addClass("check-hover");
+                        }
+                        $(this).toggleClass("check-hover");
+                        var parent_checks=$(this).parent().parent().parent().find(".check-hover");
+                        if(parent_checks.length<=1){
+                            $(this).parent().parent().parent().find(">.check").removeClass("check-hover");
+                        }
+                    })
+                    $(".tree-3-check").on("click",function(){
+                        if($(this).hasClass("check-hover")){
+                            $(this).parent().find("ul .check").removeClass("check-hover");
+                        }else{
+                            $(this).parent().parent().parent().find(">.check").addClass("check-hover");
+                            $(this).parent().parent().parent().parent().parent().find(">.check").addClass("check-hover");
+                            $(this).parent().find("ul .check").addClass("check-hover");
+                        }
+                        $(this).toggleClass("check-hover");
+                        var parent_checks=$(this).parent().parent().parent().find(".check-hover");
+                        if(parent_checks.length<=1){
+                            $(this).parent().parent().parent().find(">.check").removeClass("check-hover");
+                        }
+                        var parent_checks02=$(this).parent().parent().parent().parent().parent().find(".check-hover");
+                        if(parent_checks02.length<=1){
+                            $(this).parent().parent().parent().parent().parent().find(">.check").removeClass("check-hover");
+                        }
                     })
                 }
                 
